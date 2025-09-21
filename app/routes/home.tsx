@@ -1,5 +1,8 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
+import { motion } from "motion/react";
+import { FaHeart } from "react-icons/fa";
+import { EnterName } from "~/components/EnterName/EnterName";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +12,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+
+  return (
+    <>
+    <EnterName/>
+    </>
+  );
 }
