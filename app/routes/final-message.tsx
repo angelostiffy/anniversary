@@ -36,7 +36,7 @@ export default function FinalMessage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-pink-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-pink-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(100)].map((_, i) => (
@@ -93,17 +93,17 @@ export default function FinalMessage() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4 py-8 w-full"
+        className="text-center z-10 max-w-4xl mx-auto py-4 sm:py-8 w-full"
       >
         {/* Main Message */}
         <motion.div
-          className="mb-12"
+          className="mb-8 sm:mb-12"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 px-2"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 px-4"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -124,7 +124,7 @@ export default function FinalMessage() {
           </motion.h1>
 
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 px-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-6 sm:mb-8 px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
@@ -141,7 +141,7 @@ export default function FinalMessage() {
 
         {/* Final Picture */}
         <motion.div
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8 sm:mb-12"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
@@ -149,7 +149,7 @@ export default function FinalMessage() {
           <motion.img
             src="/FinalPic.jpg"
             alt="Final Picture"
-            className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover rounded-3xl shadow-2xl border-4 border-white/30"
+            className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-cover rounded-3xl shadow-2xl border-4 border-white/30"
             animate={{
               scale: [1, 1.05, 1],
             }}
@@ -163,7 +163,7 @@ export default function FinalMessage() {
 
         {/* Animated Icons */}
         <motion.div
-          className="flex justify-center items-center space-x-8 mb-12"
+          className="flex justify-center items-center space-x-6 sm:space-x-8 mb-8 sm:mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
@@ -178,7 +178,7 @@ export default function FinalMessage() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="text-4xl"
+            className="text-3xl sm:text-4xl"
           >
             <FaMagic className="text-yellow-400" />
           </motion.div>
@@ -192,7 +192,7 @@ export default function FinalMessage() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="text-6xl text-red-500"
+            className="text-5xl sm:text-6xl text-red-500"
           >
             <FaHeart />
           </motion.div>
@@ -207,7 +207,7 @@ export default function FinalMessage() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="text-4xl"
+            className="text-3xl sm:text-4xl"
           >
             <FaStar className="text-pink-400" />
           </motion.div>
@@ -215,13 +215,13 @@ export default function FinalMessage() {
 
         {/* Special Message */}
         <motion.div
-          className="bg-gradient-to-br from-pink-900/50 to-purple-900/50 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 mb-12 border border-white/20 mx-2"
+          className="bg-gradient-to-br from-pink-900/50 to-purple-900/50 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 border border-white/20 mx-4"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
         >
           <motion.p
-            className="text-white text-xl leading-relaxed"
+            className="text-white text-lg sm:text-xl leading-relaxed"
             animate={{
               opacity: [0.8, 1, 0.8],
             }}
@@ -272,7 +272,7 @@ export default function FinalMessage() {
         {/* Back to Start Button */}
         <motion.button
           onClick={handleBackToStart}
-          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-6 sm:py-4 sm:px-12 rounded-2xl text-lg sm:text-xl shadow-2xl flex items-center gap-3 mx-auto mt-8 w-full max-w-sm"
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-6 sm:py-4 sm:px-12 rounded-2xl text-base sm:text-lg md:text-xl shadow-2xl flex items-center gap-3 mx-auto mt-6 sm:mt-8 w-full max-w-sm"
           whileHover={{ 
             scale: 1.05, 
             boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)",

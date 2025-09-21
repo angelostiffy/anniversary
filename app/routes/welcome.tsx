@@ -17,7 +17,7 @@ export default function Welcome() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(100)].map((_, i) => (
@@ -45,11 +45,11 @@ export default function Welcome() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4"
+        className="text-center z-10 max-w-4xl mx-auto w-full"
       >
         {/* Title */}
         <motion.h1
-          className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-8 sm:mb-12"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -65,7 +65,7 @@ export default function Welcome() {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <motion.div
-            className="w-48 h-48 mx-auto rounded-full border-4 border-white/20 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative"
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto rounded-full border-4 border-white/20 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative"
             animate={{
               boxShadow: [
                 "0 0 20px rgba(255, 255, 255, 0.3)",
@@ -80,7 +80,7 @@ export default function Welcome() {
               <img 
                 src="/Neri1.jpg" 
                 alt="Neri" 
-                className="w-32 h-32 object-cover rounded-full border-4 border-white/30 shadow-2xl"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover rounded-full border-4 border-white/30 shadow-2xl"
               />
               {/* Ribbon on head */}
               <div className="absolute -top-2 -left-1 text-2xl">🎀</div>
@@ -101,7 +101,7 @@ export default function Welcome() {
 
         {/* Message */}
         <motion.p
-          className="text-2xl text-white mb-12"
+          className="text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -112,7 +112,7 @@ export default function Welcome() {
         {/* Start Journey Button */}
         <motion.button
           onClick={handleStartJourney}
-          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-4 px-12 rounded-2xl text-xl shadow-2xl flex items-center gap-3 mx-auto"
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-8 sm:py-4 sm:px-12 rounded-2xl text-lg sm:text-xl shadow-2xl flex items-center gap-3 mx-auto"
           whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)" }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 50 }}

@@ -41,7 +41,7 @@ export default function Anniversary() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(80)].map((_, i) => (
@@ -69,7 +69,7 @@ export default function Anniversary() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4"
+        className="text-center z-10 max-w-4xl mx-auto w-full"
       >
         {/* Bear Avatar with Crown */}
         <motion.div
@@ -113,7 +113,7 @@ export default function Anniversary() {
 
         {/* Happy Anniversary Title */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4 px-4"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -123,7 +123,7 @@ export default function Anniversary() {
 
         {/* Cutiepiee subtitle */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 sm:mb-12 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -138,9 +138,9 @@ export default function Anniversary() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
-          <p className="text-white text-xl mb-4">We've been together for</p>
+          <p className="text-white text-lg sm:text-xl mb-4 px-4">We've been together for</p>
           <motion.div
-            className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent"
             animate={{
               scale: [1, 1.1, 1],
             }}
@@ -148,13 +148,13 @@ export default function Anniversary() {
           >
             {days}
           </motion.div>
-          <p className="text-white text-xl mt-4">days and counting...</p>
+          <p className="text-white text-lg sm:text-xl mt-4 px-4">days and counting...</p>
         </motion.div>
 
         {/* Continue Button */}
         <motion.button
           onClick={handleContinue}
-          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-4 px-12 rounded-2xl text-xl shadow-2xl flex items-center gap-3 mx-auto"
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-8 sm:py-4 sm:px-12 rounded-2xl text-lg sm:text-xl shadow-2xl flex items-center gap-3 mx-auto"
           whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)" }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 50 }}

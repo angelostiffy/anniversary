@@ -26,7 +26,7 @@ export default function SpecialMessage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(70)].map((_, i) => (
@@ -54,11 +54,11 @@ export default function SpecialMessage() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4"
+        className="text-center z-10 max-w-4xl mx-auto w-full"
       >
         {/* Title */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-8 sm:mb-12 px-4"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -68,7 +68,7 @@ export default function SpecialMessage() {
 
         {/* Message Box */}
         <motion.div
-          className="bg-gradient-to-br from-purple-600 to-pink-600 p-12 rounded-3xl shadow-2xl max-w-2xl mx-auto cursor-pointer"
+          className="bg-gradient-to-br from-purple-600 to-pink-600 p-8 sm:p-12 rounded-3xl shadow-2xl max-w-2xl mx-auto cursor-pointer mx-4"
           whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
           whileTap={{ scale: 0.98 }}
           onClick={handleReadMessage}
@@ -92,7 +92,7 @@ export default function SpecialMessage() {
 
           {/* Personalized Text */}
           <motion.div
-            className="text-white text-3xl font-bold mb-4"
+            className="text-white text-2xl sm:text-3xl font-bold mb-4"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -113,7 +113,7 @@ export default function SpecialMessage() {
           </motion.div>
 
           {/* Instruction */}
-          <div className="text-white/80 text-lg">
+          <div className="text-white/80 text-base sm:text-lg">
             Click to read my message
           </div>
         </motion.div>
@@ -122,14 +122,14 @@ export default function SpecialMessage() {
       {/* Modal */}
       {showModal && (
         <motion.div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={handleCloseModal}
         >
           <motion.div
-            className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-hidden relative"
+            className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-6 sm:p-8 max-w-2xl w-full max-h-[80vh] overflow-hidden relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -145,38 +145,38 @@ export default function SpecialMessage() {
 
             {/* Header */}
             <div className="text-center mb-6">
-              <h2 className="text-4xl font-bold text-pink-400 mb-2">Happy Anniversary!</h2>
-              <p className="text-white/80">This is just for you ♥</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-pink-400 mb-2">Happy Anniversary!</h2>
+              <p className="text-white/80 text-sm sm:text-base">This is just for you ♥</p>
             </div>
 
             {/* Message Content */}
-            <div className="text-white space-y-4 max-h-96 overflow-y-auto pr-4">
-              <p className="text-lg font-semibold">My Dearest Baby Girl,</p>
-              <p>
+            <div className="text-white space-y-3 sm:space-y-4 max-h-96 overflow-y-auto pr-2 sm:pr-4">
+              <p className="text-base sm:text-lg font-semibold">My Dearest Baby Girl,</p>
+              <p className="text-sm sm:text-base">
                 Every day with you feels like a beautiful dream that I never want to wake up from. 
                 You've brought so much joy, laughter, and warmth into my life that I can't imagine 
                 a world without you in it.
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 From the moment we first met, I knew there was something special about you. 
                 Your smile lights up my darkest days, your laugh is my favorite sound in the world, 
                 and your love has made me a better person.
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 Thank you for being my partner, my best friend, and my greatest love. 
                 Thank you for all the little moments that make up our beautiful story together.
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 Here's to many more years of love, laughter, and adventures together. 
                 I love you more than words can express.
               </p>
-              <p className="text-pink-400 font-semibold">Forever yours, ❤️</p>
+              <p className="text-pink-400 font-semibold text-sm sm:text-base">Forever yours, ❤️</p>
             </div>
 
             {/* Send Love Button */}
             <motion.button
               onClick={handleSendLove}
-              className="w-full mt-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-4 rounded-xl"
+              className="w-full mt-4 sm:mt-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 sm:py-4 rounded-xl text-sm sm:text-base"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

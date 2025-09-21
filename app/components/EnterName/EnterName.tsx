@@ -33,7 +33,7 @@ export function EnterName() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-purple-800 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-purple-800 flex items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
@@ -61,10 +61,10 @@ export function EnterName() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10"
+        className="text-center z-10 w-full max-w-md mx-auto px-4"
       >
         <motion.h1
-          className="text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-8"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-6 sm:mb-8"
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
@@ -84,7 +84,7 @@ export function EnterName() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-3xl shadow-2xl max-w-md mx-auto"
+          className="bg-gradient-to-br from-purple-600 to-pink-600 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-md mx-auto"
         >
           <div className="text-white text-2xl mb-6">
             <div className="flex items-center justify-center mb-4">
@@ -92,8 +92,8 @@ export function EnterName() {
                 <span className="text-red-500 text-2xl">💌</span>
               </div>
             </div>
-            <div className="font-bold text-3xl mb-2">For You, My Lovely Bulf</div>
-            <div className="text-lg opacity-90">Click to read my message</div>
+            <div className="font-bold text-2xl sm:text-3xl mb-2">For You, My Lovely Bulf</div>
+            <div className="text-base sm:text-lg opacity-90">Click to read my message</div>
           </div>
 
           <motion.form onSubmit={handleSubmit} className="space-y-4">

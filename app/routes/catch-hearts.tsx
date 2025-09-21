@@ -36,14 +36,15 @@ export default function CatchHearts() {
       for (let i = 0; i < totalHearts; i++) {
         newHearts.push({
           id: i,
-          x: Math.random() * 80 + 10, // 10-90% to keep within bounds
-          y: Math.random() * 60 + 20, // 20-80% to keep within bounds
-          size: Math.random() * 20 + 20, // 20-40px
+          x: Math.random() * 70 + 15, // 15-85% to keep within bounds
+          y: Math.random() * 70 + 15, // 15-85% to keep within bounds
+          size: Math.random() * 15 + 25, // 25-40px for better visibility
         });
       }
+      console.log('Generated hearts:', newHearts);
       setHearts(newHearts);
     }
-  }, [gameStarted, hearts.length]);
+  }, [gameStarted, totalHearts]);
 
   useEffect(() => {
     if (caughtHearts.length === totalHearts && !gameCompleted) {
@@ -74,12 +75,14 @@ export default function CatchHearts() {
   };
 
   const handleStartGame = () => {
+    console.log('Starting game...');
     setGameStarted(true);
     setTimeLeft(30);
     setGameFailed(false);
     setCaughtHearts([]);
     setGameCompleted(false);
     setShowSuccess(false);
+    setHearts([]); // Reset hearts to trigger generation
   };
 
   const handleRetry = () => {
@@ -97,7 +100,7 @@ export default function CatchHearts() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(60)].map((_, i) => (
@@ -125,11 +128,11 @@ export default function CatchHearts() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4 w-full"
+        className="text-center z-10 max-w-4xl mx-auto w-full"
       >
         {/* Title */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-8"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-6 sm:mb-8 px-4"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -139,7 +142,7 @@ export default function CatchHearts() {
 
         {/* Instructions */}
         <motion.p
-          className="text-xl text-white mb-12"
+          className="text-lg sm:text-xl text-white mb-8 sm:mb-12 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -148,11 +151,11 @@ export default function CatchHearts() {
         </motion.p>
 
         {/* Game Area */}
-        <div className="relative w-full h-96 bg-black/20 rounded-2xl border-2 border-white/20 mb-12 overflow-hidden">
+        <div className="relative w-full max-w-md mx-auto h-80 sm:h-96 bg-black/20 rounded-2xl border-2 border-white/20 mb-8 sm:mb-12 overflow-hidden">
           {!gameStarted ? (
             <motion.button
               onClick={handleStartGame}
-              className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-2xl rounded-2xl"
+              className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-xl sm:text-2xl rounded-2xl"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -178,17 +181,29 @@ export default function CatchHearts() {
             </motion.div>
           ) : (
             <>
+              {/* Debug info */}
+              {hearts.length === 0 && gameStarted && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-white">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">💖</div>
+                    <div>Generating hearts...</div>
+                  </div>
+                </div>
+              )}
+              
               {/* Hearts */}
               <AnimatePresence>
                 {hearts.map((heart) => (
                   <motion.div
                     key={heart.id}
-                    className="absolute cursor-pointer"
+                    className="absolute cursor-pointer touch-manipulation"
                     style={{
                       left: `${heart.x}%`,
                       top: `${heart.y}%`,
                       width: `${heart.size}px`,
                       height: `${heart.size}px`,
+                      minWidth: '32px',
+                      minHeight: '32px',
                     }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ 
@@ -205,7 +220,8 @@ export default function CatchHearts() {
                       style={{
                         filter: caughtHearts.includes(heart.id) 
                           ? "grayscale(100%) opacity(0)" 
-                          : "none"
+                          : "drop-shadow(0 0 8px rgba(255, 0, 0, 0.8))",
+                        animation: caughtHearts.includes(heart.id) ? 'none' : 'pulse 2s infinite'
                       }}
                     />
                   </motion.div>
@@ -257,7 +273,7 @@ export default function CatchHearts() {
         {showSuccess && (
           <motion.button
             onClick={handleContinue}
-            className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-4 px-12 rounded-2xl text-xl shadow-2xl flex items-center gap-3 mx-auto"
+            className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-8 sm:py-4 sm:px-12 rounded-2xl text-lg sm:text-xl shadow-2xl flex items-center gap-3 mx-auto"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)" }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 50 }}

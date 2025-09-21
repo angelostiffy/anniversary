@@ -126,7 +126,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900 flex flex-col items-center justify-center relative overflow-hidden p-4 sm:p-6 md:p-8">
       {/* Animated background stars */}
       <div className="absolute inset-0">
         {[...Array(60)].map((_, i) => (
@@ -154,7 +154,7 @@ export default function Gallery() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center z-10 max-w-4xl mx-auto px-4 w-full"
+        className="text-center z-10 max-w-4xl mx-auto w-full"
       >
         {/* Panda Character */}
         <motion.div
@@ -181,7 +181,7 @@ export default function Gallery() {
 
         {/* Title */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4 px-4"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -190,8 +190,8 @@ export default function Gallery() {
         </motion.h1>
 
         {/* Memory Gallery */}
-        <div className="relative w-full max-w-2xl mx-auto mb-8 px-4">
-          <div className="relative h-80 md:h-96 bg-black/20 rounded-2xl border-2 border-white/20 overflow-hidden">
+        <div className="relative w-full max-w-2xl mx-auto mb-8">
+          <div className="relative h-72 sm:h-80 md:h-96 bg-black/20 rounded-2xl border-2 border-white/20 overflow-hidden mx-4">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentMemory}
@@ -210,7 +210,7 @@ export default function Gallery() {
                 <img 
                   src={memories[currentMemory].image} 
                   alt="Memory" 
-                  className="w-72 h-72 md:w-80 md:h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/30"
+                  className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/30"
                 />
               </motion.div>
             </AnimatePresence>
@@ -255,7 +255,7 @@ export default function Gallery() {
         {/* Read Message Button */}
         <motion.button
           onClick={handleReadMessage}
-          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-4 px-12 rounded-2xl text-xl shadow-2xl flex items-center gap-3 mx-auto"
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-8 sm:py-4 sm:px-12 rounded-2xl text-lg sm:text-xl shadow-2xl flex items-center gap-3 mx-auto"
           whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)" }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 50 }}
